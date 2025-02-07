@@ -1,0 +1,22 @@
+header {
+    background-color: pink;
+}
+header > * {padding: 0 80px;}
+header .header_bnr_wrap {
+    background-color: #111;
+    display: flex; flex-flow: row nowrap;
+    justify-content: flex-end;
+    position: relative;
+}
+header .header_bnr_wrap .hd_bnr_message {
+    position: absolute; top: 0px; left:50%;
+    transform:translateX(-50%);
+}
+header .header_bnr_wrap .hd_bnr_message .message_group {float: left; margin-right: 30px;}
+header .header_bnr_wrap .hd_bnr_message .message_group li {}
+header .header_bnr_wrap .hd_bnr_message .message_group li p {color: #fff;}
+header .header_bnr_wrap .hd_bnr_message a {}
+header .header_bnr_wrap .hd_bnr_message a img {}
+header .header_bnr_wrap .page_setting {margin-right: 20px;}
+header .header_bnr_wrap .page_setting a {color: #fff;}
+header .header_bnr_wrap .page_setting .line {}
