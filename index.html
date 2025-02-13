@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COSRX 포트폴리오</title>
+    <title>COSRX 메인페이지 | 정민재</title>
+    <!-- Swiper 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Font 연결 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <!-- favicon 설정 -->
+    <link rel="shorcut icon" href="./images/cosrx_favicon.webp" type="images/x-icon">
+    <link rel="icon" href="./images/cosrx_favicon.webp" type="images/x-icon">
+    <!-- Script 연결 -->
     <script src="./script/index.js" defer></script>
+    <!-- CSS 연결 -->
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/common.css">
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
     <header>
-        <div class="header_bnr_wrap">
-            <div class="hd_bnr_message">
-                <ul class="message_group">
-                    <li><p>공식몰 회원가입 시, 무료배송 쿠폰 증정</p></li>
+        <div class="hd_top">
+            <ul class="hd_message">
+                <ul class="message_list">
+                    <li><a href="#">공식몰 회원가입 시, 무료배송 쿠폰 증정</a></li>
                 </ul>
-                <a href="#"><img src="./images/right_btn.png" alt=""></a>
-            </div>
+            </ul>
             <div class="page_setting">
                 <a href="#">고객센터</a>
                 <span class="line"></span>
@@ -27,7 +35,7 @@
             </div>
             <button type="button" id="close_btn"><img src="./images/close.png" alt=""></button>
         </div>
-        <div class="header_nav">
+        <div class="hd_navbar">
             <h1><a href="#"><img src="./images/cosrx_logo.png" alt="코스알엑스"></a></h1>
             <nav>
                 <ul class="path">
@@ -35,17 +43,90 @@
                     <li><a href="#">Bestsellers</a></li>
                     <li><a href="#">Skincare</a></li>
                     <li><a href="#">Event</a></li>
-                    <span class="line"></span>
+                    <li><span class="line"></span></li>
                     <li><a href="#">About COSRX</a></li>
                     <li><a href="#">Ingredient</a></li>
                 </ul>
             </nav>
-            <div class="header_icon">
+            <div class="hd_icon">
                 <a href="#"><img src="./images/search.png" alt="검색"></a>
                 <a href="#"><img src="./images/cart.png" alt="장바구니"></a>
                 <a href="#"><img src="./images/user.png" alt="마이페이지"></a>
             </div>
         </div>
     </header>
+    <main>
+        <div class="main_bnr_wrap">
+            <div class="swiper main_bnr">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide main_bnr1">
+                        <div class="contents contents1">
+                            <h1>모두를 위한<br>트러블 흔적 고민 세럼</h1>
+                        </div>
+                    </div>
+                    <div class="swiper-slide main_bnr2">
+                        <div class="contents contents2">
+                            <h1>모두를 위한<br>트러블 흔적 고민 세럼</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bnr_btn">
+                <!-- 아래 (사용자 커스텀 버전) -->
+                <button type="button" class="prev"><img src="./images/bnr_next.png" alt="이전 이벤트 보기"></button>
+                <button type="button" class="next"><img src="./images/bnr_next.png" alt="다음 이벤트 보기"></button>
+            </div>
+            <div class="swiper-pagination"><!-- 내용작성금지 --></div>
+        </div>
+        <!-- END 메인 배너 슬라이드 -->
+        <!-- 1행 베스트 상품 -->
+        <div class="container best_container">
+            <div class="header_wrap">
+                <div class="title_wrap">
+                    <div class="title">
+                        <p class="title_en">Our Best Sellers</p>
+                        <h2 class="title_ko">베스트 상품</h2>
+                    </div>
+                    <p class="more_btn"><a href="#">제품 더보기</a></p>
+                </div>
+                <ul class="category best_category">
+                    <li><a href="#" class="active">전체</a></li>
+                    <li><a href="#">패드</a></li>
+                    <li><a href="#">클렌징</a></li>
+                </ul>
+            </div>
+            <div class="best_wrap">
+                <div class="swiper best_slider">
+                    <!-- START 베스트 상품 슬라이드 -->
+                    <div class="swiper-wrapper">
+                        <!-- START 베스트 상품 1 -->
+                        <div class="swiper-slide best_slide1">
+                            <div class="contents contents1">
+                                <a href="#"><img src="./images/best_001.png" alt=""></a>
+                                <div class="item_info best_info">
+                                    <a href="#" class="item_review"><span class="star"></span></a>
+                                    <div class="item_name">
+                                        <p class="name">더 6 펩타이드 스킨 부스터 세럼 + RX SET</p>
+                                        <p class="des">수분 결광 세럼</p>
+                                    </div>
+                                    <div class="item_price">
+                                        <strong class="sale_price">34,500원</strong>
+                                        <div class="original_price">
+                                            <del class="original">45,000원</del>
+                                            <em class="sale">25%</em>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END 베스트 상품 1 -->
+                    </div>
+                    <!-- END 베스트 상품 슬라이드 -->
+                </div>
+            </div>
+        </div>
+        <!-- 2행 전체 상품 -->
+    </main>
 </body>
+<!-- Test Github -->
 </html>
