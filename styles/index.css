@@ -38,22 +38,31 @@ body > * {width: 1903px;} /* 반응형 진행 시, 수정 */
 /*============Header 시작*/
 header {
     /* 반응형 진행 시 너비 수정 */
-    width: 1903px; height: 67px;
+    width: 1903px; height: 60px;
     position: sticky; top: 0; z-index: 999;
 }
 /*===============================================< Header NAV >*/
 /* sticky 설정 및 opacity 변경 설정 */
 header .hd_navbar {
-    width: 100%;
+    width: 100%; height: 100%;
     display: flex; flex-flow: row nowrap;
     justify-content: space-between; align-items: center;
     padding: 0 80px;
 }
-/* scoll 값에 따른 nav shadow 설정 */
-header .navbar_shadow {
+header .hd_navbar::before {
+    position: absolute; top: 0; left: 0;
+    content: ''; display: inline-block;
+    width: 100%; height: 0;
+    background-color: transparent;
+    box-shadow: none;
+    z-index: -1;
+    transition: all 0.7s ease;
+    
+}
+header .hd_navbar.active::before {
+    height: 100%;
     background-color: #fff;
     box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-    transition: background-color 0.8s;
 }
 header .hd_navbar h1 {padding: 20px 0;}
 header .hd_navbar h1 a {display: inline-block; width: 100%;}
@@ -64,7 +73,16 @@ header .hd_navbar nav {
     transform:translateX(-50%);
 }
 header .hd_navbar .path {display: flex; flex-flow: row nowrap;}
-header .hd_navbar .path li {margin-right: 50px;}
+header .hd_navbar .path li {margin-right: 50px; position: relative;}
+header .hd_navbar .path li::before {
+    position: absolute; bottom: -10px; left: 50%;
+    transform: translateX(-50%);
+    content: ''; display: inline-block;
+    width: 0; height: 2px;
+    background-color: #111;
+}
+header .hd_navbar .path li.active::before {width: 120%; transition: width 0.3s;}
+header .hd_navbar .path li:nth-child(5):before {display: none}
 header .hd_navbar .path li:last-child {margin-right: 0;}
 header .hd_navbar .path li a {font-weight: 500;}
 header .hd_navbar .path li .line {
