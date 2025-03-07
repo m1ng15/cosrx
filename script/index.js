@@ -13,21 +13,30 @@ window.addEventListener('scroll',()=>{
 })
 /* nav에 hover 시 배경색 변환 */
 navBar.addEventListener('mouseover',()=>{
-    navBar.style.cssText='background-color: #fff; box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px; transition: all 0.8s;'
+    navBar.classList.add('active');
 })
 navBar.addEventListener('mouseout',()=>{
-    navBar.style.cssText='background-color: none; box-shadow: none; transition: all 0.6s;'
+    navBar.classList.remove('active');
 })
 /* nav 메뉴에 hover 시 메뉴선 활성화 */
 const navMenu = document.querySelectorAll('header nav .path li');
-console.log(navMenu)
+const subMenuActive = document.querySelector('header nav .sub_active');
+const subMenu = document.querySelector('header nav .sub_bg');
 navMenu.forEach((menu)=>{
     menu.addEventListener('mouseover',()=>{
+        subMenu.classList.remove('active');
         menu.classList.add('active')
     })
     menu.addEventListener('mouseout',()=>{
         menu.classList.remove('active')
     })
+})
+/* skincare hover 시 서브 메뉴 활성화 */
+subMenuActive.addEventListener('mouseover',()=>{
+    subMenu.classList.add('active');
+})
+subMenu.addEventListener('mouseout',()=>{
+    subMenu.classList.remove('active');
 })
 /* (메인 배너) 제품 더보기 버튼 오버 시, 슬라이드 정지 */
 const bnrMoreBtn = document.querySelectorAll('.main_bnr_wrap .main_bnr #bnr_more')
