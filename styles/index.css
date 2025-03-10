@@ -96,7 +96,6 @@ header .hd_navbar nav .sub_bg {
 header .hd_navbar nav .sub_bg.active {display: block; opacity: 1;}
 header .hd_navbar nav .sub_bg .sub_contents {
     width: 709px; margin: 40px auto;
-    background-color: orange;
 }
 header .hd_navbar nav .sub_bg .sub_contents .sub_column {
     display: inline-block;
