@@ -1,67 +1,60 @@
-const bnrSwiper = new Swiper('.bnr_swiper', {
-    autoplay:{delay:0,},
-    loop:true,
-    speed: 5000,
-    slidesPerView:4,
-    spaceBetween:30,
+/* 맨 위 공지사항 닫기 활성화 */
+const headerNotice = document.querySelector('.hd_top')
+const noticeClose = document.querySelector('.hd_top #close_btn')
+noticeClose.addEventListener('click',()=>{
+    headerNotice.style.display = 'none';
 })
-const snsSwiper = new Swiper('.sns_swiper', {
-    autoplay:{delay:0,},
-    loop:true,
-    speed: 7000,
-    slidesPerView:4,
-    spaceBetween:30,
-})
-
-const detailSwiper = new Swiper('.detail_swiper', {
-    autoplay:{delay:0,},
-    loop:true,
-    speed: 7000,
-    slidesPerView:4,
-    spaceBetween:30,
-})
-/* other design 팝업 */
-const img_popup_bg = document.querySelector('.img_popup_bg')
-const bnrImg = document.querySelectorAll('.bnr_swiper img')
-const snsImg = document.querySelectorAll('.sns_swiper img')
-const detailImg = document.querySelectorAll('.detail_swiper img')
-
-img_popup_bg.style.display = 'none';
-for(let i of bnrImg){
-    i.addEventListener('click',()=>{
-        img_popup_bg.style.display = 'block';
-        console.log(i.src)
-        img_popup_bg.children[0].children[0].src = i.src;
-        img_popup_bg.children[0].style.width = '900px';
-        img_popup_bg.children[0].style.marginTop = '250px';
-    })
-}
-for(let i of snsImg){
-    i.addEventListener('click',()=>{
-        img_popup_bg.style.display = 'block';
-        console.log(i.src)
-        img_popup_bg.children[0].children[0].src = i.src;
-        img_popup_bg.children[0].style.width = '700px';
-        img_popup_bg.children[0].style.marginTop = '150px';
-    })
-}
-for(let i of detailImg){
-    i.addEventListener('click',()=>{
-        img_popup_bg.style.display = 'block';
-        console.log(i.src)
-        img_popup_bg.children[0].children[0].src = i.src;
-        img_popup_bg.children[0].style.width = '450px';
-        img_popup_bg.children[0].style.marginTop = '65px';
-    })
-}
-img_popup_bg.addEventListener('click',()=>{
-    img_popup_bg.style.display = 'none'
-})
-
-/* 프로필 사진 애니메이션 - 스크롤 적용 */
-const personImg = document.querySelector('.about .person_img')
+/* scroll에 따른 nav 배경색 변환 */
+const navBar = document.querySelector('header .hd_navbar')
 window.addEventListener('scroll',()=>{
-    if ( window.scrollY >= 300) {
-        personImg.style.animation = 'profile_animation 1s forwards';
-    }
+    if (window.scrollY > 800) {
+        navBar.classList.add('active')
+    } else {navBar.classList.remove('active')}
+})
+/* nav에 hover 시 배경색 변환 */
+navBar.addEventListener('mouseover',()=>{
+    navBar.classList.add('active');
+})
+navBar.addEventListener('mouseout',()=>{
+    navBar.classList.remove('active');
+})
+/* nav 메뉴에 hover 시 메뉴선 활성화 */
+const navMenu = document.querySelectorAll('header nav .path li');
+const subMenuActive = document.querySelector('header nav .sub_active');
+const subMenu = document.querySelector('header nav .sub_bg');
+navMenu.forEach((menu)=>{
+    menu.addEventListener('mouseover',()=>{
+        subMenu.classList.remove('active');
+        menu.classList.add('active')
+    })
+    menu.addEventListener('mouseout',()=>{
+        menu.classList.remove('active')
+    })
+})
+/* skincare hover 시 서브 메뉴 활성화 */
+subMenuActive.addEventListener('mouseover',()=>{
+    subMenu.classList.add('active');
+})
+subMenu.addEventListener('mouseout',()=>{
+    subMenu.classList.remove('active');
+})
+/* (메인 배너) 제품 더보기 버튼 오버 시, 슬라이드 정지 */
+const bnrMoreBtn = document.querySelectorAll('.main_bnr_wrap .main_bnr #bnr_more')
+bnrMoreBtn.forEach((btn) => {
+    btn.addEventListener('mouseover',()=>{
+        mainHeaderSwiper.autoplay.stop();
+    })
+    btn.addEventListener('mouseout',()=>{
+        mainHeaderSwiper.autoplay.start();
+    }) 
+})
+/* 콜렉션 상품 카테고리 활성화 */
+const lineCategory = document.querySelectorAll('.main_wrap .line_style_category li')
+lineCategory.forEach((list) => {
+    list.addEventListener('mouseover', ()=>{
+        list.classList.add('hover');
+    })
+    list.addEventListener('mouseleave', ()=>{
+        list.classList.remove('hover');
+    })
 })
